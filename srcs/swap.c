@@ -6,7 +6,7 @@
 /*   By: rmount <rmount@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/05 11:54:23 by rmount            #+#    #+#             */
-/*   Updated: 2023/06/05 16:50:00 by rmount           ###   ########.fr       */
+/*   Updated: 2023/06/06 16:14:58 by rmount           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,13 @@
 *	swap_both
 */
 
+/*
+#	...
+•	This function is used in the push_to_a and push_to_b functions.
+•	If the from_stack is empty we return null.
+•	We set the temp node to = from_stack, then from_stack to from_stack->next.
+•	Finally, we add the temp node to the front of the to_stack. 	
+*/
 void	swap(t_node **stack)
 {
 	t_node	*tmp;

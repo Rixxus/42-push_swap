@@ -6,7 +6,7 @@
 /*   By: rmount <rmount@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/05 10:00:12 by rmount            #+#    #+#             */
-/*   Updated: 2023/06/05 16:49:05 by rmount           ###   ########.fr       */
+/*   Updated: 2023/06/06 14:46:40 by rmount           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,7 +42,7 @@ void			add_to_front(t_node **stack, t_node *new_node);
 void			add_to_back(t_node **stack, t_node *new_node);
 
 /* push.c */
-void			push(t_node **stack_from, t_node **stack_dst);
+void			push(t_node **from_stack, t_node **to_stack);
 void			push_to_a(t_node **stack_b, t_node **stack_a);
 void			push_to_b(t_node **stack_a, t_node **stack_b);
 
