@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   rotate_down.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: rmount <rmount@student.42.fr>              +#+  +:+       +#+        */
+/*   By: rmount <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/05 15:14:13 by rmount            #+#    #+#             */
-/*   Updated: 2023/06/06 15:43:37 by rmount           ###   ########.fr       */
+/*   Updated: 2023/06/13 13:33:44 by rmount           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,29 +50,32 @@ void	rotate_down(t_node **stack)
 /*
 #	rotate_down_a (rra)
 •	This function uses the rotate_down function on stack_a, 
-•	removing the tail and adding it to the top of the stack.
+•	removing the tail and adding it to the top of the stack,
+•	then prints the move to the standard output.
 */
 void	rotate_down_a(t_node **stack_a)
 {
 	rotate_down(stack_a);
-	ft_putendl_fd("rra", 1);
+	ft_printf("rra\n");
 }
 
 /*
 #	rotate_down_b (rrb)
 •	This function uses the rotate_down function on stack_b, 
-•	removing the tail and adding it to the top of the stack.
+•	removing the tail and adding it to the top of the stack,
+•	then prints the move to the standard output.
 */
 void	rotate_down_b(t_node **stack_b)
 {
 	rotate_down(stack_b);
-	ft_putendl_fd("rrb", 1);
+	ft_printf("rrb\n");
 }
 
 /*
 #	rotate_down_both (rrr)
 •	This function uses the rotate_down function on stack_a and stack_b, 
-•	removing the tail and adding it to the top of each stack.
+•	removing the tail and adding it to the top of each stack,
+•	then prints the move to the standard output.
 */
 void	rotate_down_both(t_node **stack_a, t_node **stack_b)
 {
@@ -80,5 +83,5 @@ void	rotate_down_both(t_node **stack_a, t_node **stack_b)
 		return ;
 	rotate_down(stack_a);
 	rotate_down(stack_b);
-	ft_putendl_fd("rrr", 1);
+	ft_printf("rrr\n");
 }

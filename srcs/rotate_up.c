@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   rotate_up.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: rmount <rmount@student.42.fr>              +#+  +:+       +#+        */
+/*   By: rmount <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/05 15:15:11 by rmount            #+#    #+#             */
-/*   Updated: 2023/06/06 16:04:39 by rmount           ###   ########.fr       */
+/*   Updated: 2023/06/13 13:35:38 by rmount           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@
 */
 
 /*
-#	rotate_down
+#	rotate_up
 •	This function takes a stack and moves all nodes up one space. The top 
 •	node is moved to the bottom.
 •	If the stack only has one node, we can't rotate it and return null.
@@ -48,29 +48,32 @@ void	rotate_up(t_node **stack)
 /* 
 #	rotate_up_a
 •	This function uses the rotate_up function on stack_a, 
-•	removing the head and adding it to the bottom of the stack.
+•	removing the head and adding it to the bottom of the stack,
+•	then prints the move to the standard output.
 */
 void	rotate_up_a(t_node **stack_a)
 {
 	rotate_up(stack_a);
-	ft_putendl_fd("ra", 1);
+	ft_printf("ra\n");
 }
 
 /* 
 #	rotate_up_b
 •	This function uses the rotate_up function on stack_b, 
-•	removing the head and adding it to the bottom of the stack.
+•	removing the head and adding it to the bottom of the stack,
+•	then prints the move to the standard output.
 */
 void	rotate_up_b(t_node **stack_b)
 {
 	rotate_up(stack_b);
-	ft_putendl_fd("rb", 1);
+	ft_printf("rb\n");
 }
 
 /* 
 #	rotate_up_both
 •	This function uses the rotate_up function on on stack_a and stack_b, 
-•	removing the head and adding it to the bottom of each stack.
+•	removing the head and adding it to the bottom of each stack,
+•	then prints the move to the standard output.
 */
 void	rotate_up_both(t_node **stack_a, t_node **stack_b)
 {
@@ -78,5 +81,5 @@ void	rotate_up_both(t_node **stack_a, t_node **stack_b)
 		return ;
 	rotate_up(stack_a);
 	rotate_up(stack_b);
-	ft_putendl_fd("rr", 1);
+	ft_printf("rr\n");
 }

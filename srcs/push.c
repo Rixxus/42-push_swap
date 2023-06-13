@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: rmount <rmount@student.42.fr>              +#+  +:+       +#+        */
+/*   By: rmount <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/05 11:54:09 by rmount            #+#    #+#             */
-/*   Updated: 2023/06/06 14:58:31 by rmount           ###   ########.fr       */
+/*   Updated: 2023/06/13 13:31:16 by rmount           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,21 +40,23 @@ void	push(t_node **from_stack, t_node **to_stack)
 /*
 #	push_to_a
 •	This function uses the push function to remove the top node from
-•	stack_b and add it to the front of stack_a.
+•	stack_b and adds it to the front of stack_a, then prints the move
+•	to the standard output.
 */
 void	push_to_a(t_node **stack_b, t_node **stack_a)
 {
 	push(stack_b, stack_a);
-	ft_putendl_fd("pa", 1);
+	ft_printf("pa\n");
 }
 
 /*
 #	push_to_b
 •	This function uses the push function to remove the top node from
-•	stack_a and add it to the front of stack_b.
+•	stack_a and adds it to the front of stack_b, then prints the move
+•	to the standard output.
 */
 void	push_to_b(t_node **stack_a, t_node **stack_b)
 {
 	push(stack_a, stack_b);
-	ft_putendl_fd("pb", 1);
+	ft_printf("pb\n");
 }

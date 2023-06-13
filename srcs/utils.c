@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   utils.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: rmount <rmount@student.42.fr>              +#+  +:+       +#+        */
+/*   By: rmount <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/05 12:00:09 by rmount            #+#    #+#             */
-/*   Updated: 2023/06/05 16:38:04 by rmount           ###   ########.fr       */
+/*   Updated: 2023/06/13 14:47:04 by rmount           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,12 +18,24 @@
 *	ft_free
 */
 
-void	error_message(char *str)
+/*
+#	error_message
+•	This function is called when a check fails and prints "Error" to the
+•	standard output then exits the program.
+*/
+void	error_message()
 {
-	ft_putendl_fd(str, 2);
+	ft_printf("Error\n");
 	exit(0);
 }
 
+/*
+#	ft_free
+•	This function is called after using ft_split to free the memory that
+•	was used to store the arguments passed to the program.
+•	It frees each element (each is an array) and then frees the outer 
+•	array too.
+*/
 void	ft_free(char **str)
 {
 	int	i;
