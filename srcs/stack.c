@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   stack.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: rmount <rmount@student.42.fr>              +#+  +:+       +#+        */
+/*   By: rmount <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/05 15:41:32 by rmount            #+#    #+#             */
-/*   Updated: 2023/06/05 16:48:35 by rmount           ###   ########.fr       */
+/*   Updated: 2023/06/14 20:01:05 by rmount           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,30 +14,43 @@
 
 /*
 *	Functions in file:
-*   get_min
-*   get_next_min
+*   get_min_i
+*   get_smallest_value_node
 *	index_stack
 *	new_stack
-*   get_distance_to_node
+*   get_spaces_to_node
 */
 
-int	get_min(t_node **stack, int number)
+/*
+#	get_min_i
+•	This function traverses the stack, finding the node with the
+•	smallest index and returns the index.
+*/
+int	get_min_i(t_node **stack, int number)
 {
 	t_node	*head;
-	int		min_index;
+	int		smallest_index;
 
 	head = *stack;
-	min_index = head->index;
+	smallest_index = head->index;
 	while (head->next)
 	{
 		head = head->next;
-		if ((head->index < min_index) && head->index != number)
-			min_index = head->index;
+		if ((head->index < smallest_index) && head->index != number)
+			smallest_index = head->index;
 	}
-	return (min_index);
+	return (smallest_index);
 }
 
-t_node	*get_next_min(t_node **stack)
+/*
+#	get_smallest_value_node
+•	This function traverses the stack, finding the node with the smallest
+•	value (number) and returning it.
+•	We continue to iterate through, always returning the next largest from
+•	the last node because once a node has been given an index it will no
+•	longer be looked at in the if condition. 
+*/
+t_node	*get_smallest_value_node(t_node **stack)
 {
 	t_node	*head;
 	t_node	*min;
@@ -61,20 +74,34 @@ t_node	*get_next_min(t_node **stack)
 	return (min);
 }
 
+/*
+#	index_stack
+•	This function takes a newly made stack and assigns indexes to each of
+•	the nodes, starting at the node with the lowest value and ending with
+•	the node with the highest value. 
+*/
 void	index_stack(t_node **stack)
 {
 	t_node	*head;
 	int		index;
 
 	index = 0;
-	head = get_next_min(stack);
+	head = get_smallest_value_node(stack);
 	while (head)
 	{
 		head->index = index++;
-		head = get_next_min(stack);
+		head = get_smallest_value_node(stack);
 	}
 }
 
+/*
+#	new_stack
+•	This function creates the initial stack_a by taking the argv and 
+•	creating a new node for each argument, then adding that node to
+•	the back of the stack.
+•	It then indexes the stack and frees the memory used to split the
+•	args (if this was done).
+*/
 void	new_stack(t_node **stack, int argc, char **argv)
 {
 	t_node	*new;
@@ -96,20 +123,25 @@ void	new_stack(t_node **stack, int argc, char **argv)
 		ft_free(argv);
 }
 
-int	get_distance_to_node(t_node **stack, int index)
+/*
+#	get_spaces_to_node
+•	This function traverses the stack looking for the supplied index.
+•	We increment spaces every time we don't find the matching index,
+•	which tells how how many moves getting to it will cost.
+*/
+int	get_spaces_to_node(t_node **stack, int index)
 {
 	t_node	*head;
-	int		distance;
+	int		spaces;
 
-	distance = 0;
+	spaces = 0;
 	head = *stack;
 	while (head)
 	{
 		if (head->index == index)
 			break ;
-		distance++;
+		spaces++;
 		head = head->next;
 	}
-	return (distance);
+	return (spaces);
 }
-

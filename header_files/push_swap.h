@@ -3,13 +3,12 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: rmount <rmount@student.42.fr>              +#+  +:+       +#+        */
+/*   By: rmount <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/05 10:00:12 by rmount            #+#    #+#             */
-/*   Updated: 2023/06/06 14:46:40 by rmount           ###   ########.fr       */
+/*   Updated: 2023/06/14 19:27:07 by rmount           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-
 
 #ifndef PUSH_SWAP_H
 # define PUSH_SWAP_H
@@ -27,7 +26,6 @@ typedef struct s_node
 	int				index;
 	struct s_node	*next;
 }	t_node;
-
 
 /* checks.c */
 int				is_repeat(int num, char **argv, int i);
@@ -65,17 +63,12 @@ void			sort_five(t_node **stack_a, t_node **stack_b);
 void			simple_sort(t_node **stack_a, t_node **stack_b);
 void			radix_sort(t_node **stack_a, t_node **stack_b);
 
-/* stack_utils.c */
-int				is_sorted(t_node **stack);
-int				stack_size(t_node *head);
-void			free_stack(t_node **stack);
-
 /* stack.c */
-int				get_min(t_node **stack, int number);
-t_node			*get_next_min(t_node **stack);
+int				get_min_i(t_node **stack, int number);
+t_node			*get_smallest_value_node(t_node **stack);
 void			index_stack(t_node **stack);
 void			new_stack(t_node **stack, int argc, char **argv);
-int				get_distance_to_node(t_node **stack, int index);
+int				get_spaces_to_node(t_node **stack, int index);
 
 /* swap.c */
 void			swap(t_node **stack);
@@ -84,7 +77,10 @@ void			swap_b(t_node **stack_b);
 void			swap_both(t_node **stack_a, t_node **stack_b);
 
 /* utils.c */
-void			error_message(char *str);
+void			error_message(void);
 void			ft_free(char **str);
+int				is_sorted(t_node **stack);
+int				stack_size(t_node *head);
+void			free_stack(t_node **stack);
 
 #endif
